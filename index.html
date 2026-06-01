@@ -273,27 +273,6 @@
           </div>
         </div>
 
-        <!-- TOTAL POR FONTE -->
-        <div class="soft-card rounded-[28px] p-6 mt-4">
-          <div class="mb-5">
-            <p class="title-font text-xs uppercase tracking-widest font-black text-blue-700">
-              Caixa Geral
-            </p>
-
-            <h3 class="title-font text-2xl font-black mt-1">
-              Total por fonte de entrada
-            </h3>
-
-            <p class="text-sm text-slate-500">
-              Veja quanto entrou em cada tipo de arrecadação.
-            </p>
-          </div>
-
-          <div id="listaFontesDashboard" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            <p class="text-slate-500">Carregando...</p>
-          </div>
-        </div>
-
         <!-- ÚLTIMAS MOVIMENTAÇÕES -->
         <div class="soft-card rounded-[28px] p-6 mt-4">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
@@ -622,10 +601,7 @@
       measurementId: "G-WYXXRKDZ7X"
     };
 
-    // Identificação deste site dentro do mesmo banco
     const SITE_ID = "geral";
-
-    // Mesmo ADM usado no outro site
     const ADMIN_EMAIL = "Anjos@ejc2026.com";
 
     const FONTES_GERAL = [
@@ -835,8 +811,6 @@
       }
     });
 
-    // Busca em tempo real no mesmo banco.
-    // Filtra apenas os documentos da equipe geral.
     const q = query(collection(db, "movimentacoes"), orderBy("createdAt", "desc"));
 
     onSnapshot(q, (snapshot) => {
@@ -893,39 +867,14 @@
       $("totalDoacoes").innerText = formatarMoeda(totais.fontes.doacao || 0);
       $("totalPatrocinios").innerText = formatarMoeda(totais.fontes.patrocinio || 0);
 
-      renderizarFontesDashboard(totais.fontes);
       renderizarUltimas();
       renderizarHistorico();
-    }
-
-    function renderizarFontesDashboard(totaisFontes) {
-      $("listaFontesDashboard").innerHTML = FONTES_GERAL.map((fonte) => {
-        const total = totaisFontes[fonte.id] || 0;
-
-        return `
-          <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-            <p class="text-xs font-black text-slate-500 uppercase tracking-widest">
-              Fonte
-            </p>
-
-            <h4 class="title-font font-black text-slate-950 mt-1">
-              ${escapeHTML(fonte.nome)}
-            </h4>
-
-            <p class="text-lg font-black text-blue-700 mt-1">
-              ${formatarMoeda(total)}
-            </p>
-          </div>
-        `;
-      }).join("");
     }
 
     function criarCardMovimentacao(item, permitirExcluir = false) {
       const entrada = item.tipo === "entrada";
 
-      const titulo = entrada
-        ? item.descricao
-        : item.descricao;
+      const titulo = item.descricao;
 
       const detalhe = entrada
         ? `${formatarFonte(item.fonte)} • ${formatarPagamento(item.pagamento)}`
