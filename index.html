@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>EJC Campo Grande - Geral</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --ejc-yellow: #facc15;
+      --ejc-blue: #2563eb;
+      --ejc-red: #dc2626;
+      --ejc-green: #16a34a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      color: #0f172a;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(250, 204, 21, .35), transparent 25%),
+        radial-gradient(circle at 85% 12%, rgba(37, 99, 235, .25), transparent 28%),
+        radial-gradient(circle at 15% 90%, rgba(22, 163, 74, .22), transparent 26%),
+        radial-gradient(circle at 85% 85%, rgba(220, 38, 38, .20), transparent 28%),
+        linear-gradient(135deg, #f8fafc 0%, #e0f2fe 45%, #fef9c3 100%);
+      overflow-x: hidden;
+    }
+
+    .title-font {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pattern {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(15, 23, 42, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, .08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      z-index: 0;
+    }
+
+    .hero-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.82)),
+        linear-gradient(135deg, var(--ejc-yellow), var(--ejc-blue), var(--ejc-red), var(--ejc-green));
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: 0 25px 80px rgba(15, 23, 42, .18);
+      backdrop-filter: blur(16px);
+    }
+
+    .soft-card {
+      background: rgba(255,255,255,.96);
+      color: #0f172a;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, .13);
+      border: 1px solid rgba(255,255,255,.9);
+    }
+
+    .color-line {
+      height: 8px;
+      background: linear-gradient(90deg, var(--ejc-yellow), var(--ejc-blue), var(--ejc-red), var(--ejc-green));
+    }
+
+    .tab-active {
+      background: linear-gradient(135deg, var(--ejc-blue), #1d4ed8);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, .25);
+    }
+
+    .tab-inactive {
+      background: rgba(255,255,255,.85);
+      color: #334155;
+      border: 1px solid rgba(15,23,42,.08);
+    }
+
+    .hidden-section {
+      display: none;
+    }
+
+    .input {
+      width: 100%;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 13px 15px;
+      outline: none;
+      background: #f8fafc;
+      transition: .2s;
+      color: #0f172a;
+    }
+
+    .input:focus {
+      border-color: var(--ejc-blue);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, .14);
+      background: white;
+    }
+
+    .btn-main {
+      border-radius: 18px;
+      padding: 13px 18px;
+      font-weight: 900;
+      transition: .2s;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .logo-box {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pattern"></div>
+
+  <div class="app">
+
+    <!-- HEADER -->
+    <header class="px-4 py-5">
+      <div class="max-w-7xl mx-auto hero-card rounded-[34px] overflow-hidden">
+        <div class="color-line"></div>
+
+        <div class="p-5 md:p-8">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+            <div class="flex flex-col md:flex-row md:items-center gap-5">
+              <div class="logo-box w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 flex items-center justify-center overflow-hidden shrink-0">
+                <img
+                  src="logo-ejc.png"
+                  alt="Logo EJC Campo Grande"
+                  class="w-full h-full object-contain p-0"
+                  onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';"
+                >
+
+                <div id="logoFallback" class="hidden w-full h-full items-center justify-center text-center p-3">
+                  <span class="title-font text-5xl font-black text-blue-700">
+                    EJC
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <p class="title-font text-sm md:text-base uppercase tracking-[.25em] text-blue-700 font-black">
+                  Controle Financeiro
+                </p>
+
+                <h1 class="title-font text-4xl md:text-6xl lg:text-7xl font-black mt-1 leading-tight text-slate-950">
+                  EJC CAMPO GRANDE
+                </h1>
+
+                <p class="title-font text-xl md:text-2xl font-black text-blue-700 mt-2">
+                  Caixa GERAL
+                </p>
+
+                <p class="text-slate-600 mt-3 max-w-2xl text-sm md:text-base">
+                  Sistema geral para organizar doações, vendas, patrocínios, eventos, entradas, saídas e saldo final.
+                </p>
+
+                <div class="flex flex-wrap gap-2 mt-4">
+                  <span class="px-3 py-1 rounded-full bg-yellow-300 text-yellow-950 text-xs font-black">Amarelo</span>
+                  <span class="px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-black">Azul</span>
+                  <span class="px-3 py-1 rounded-full bg-red-600 text-white text-xs font-black">Vermelho</span>
+                  <span class="px-3 py-1 rounded-full bg-green-600 text-white text-xs font-black">Verde</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <button id="tabDashboard" class="tab-active px-5 py-3 rounded-2xl font-black transition">
+                Dashboard
+              </button>
+
+              <button id="tabAdmin" class="tab-inactive px-5 py-3 rounded-2xl font-black transition">
+                ADM
+              </button>
+
+              <button id="tabHistorico" class="tab-inactive px-5 py-3 rounded-2xl font-black transition">
+                Histórico
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 pb-10">
+
+      <!-- DASHBOARD -->
+      <section id="sectionDashboard">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="soft-card rounded-[28px] p-6 border-t-8 border-green-500">
+            <p class="title-font text-xs uppercase tracking-widest font-black text-slate-500">
+              Total arrecadado
+            </p>
+            <h2 id="totalEntradas" class="title-font text-4xl font-black text-green-600 mt-2">
+              R$ 0,00
+            </h2>
+            <p class="text-sm text-slate-500 mt-2">
+              Todo dinheiro recebido no caixa geral.
+            </p>
+          </div>
+
+          <div class="soft-card rounded-[28px] p-6 border-t-8 border-red-500">
+            <p class="title-font text-xs uppercase tracking-widest font-black text-slate-500">
+              Total de saídas
+            </p>
+            <h2 id="totalSaidas" class="title-font text-4xl font-black text-red-600 mt-2">
+              R$ 0,00
+            </h2>
+            <p class="text-sm text-slate-500 mt-2">
+              Gastos registrados.
+            </p>
+          </div>
+
+          <div class="rounded-[28px] p-6 bg-gradient-to-br from-blue-600 via-blue-700 to-green-600 shadow-2xl text-white">
+            <p class="title-font text-xs uppercase tracking-widest font-black text-white/75">
+              Saldo final
+            </p>
+            <h2 id="saldoFinal" class="title-font text-4xl font-black mt-2">
+              R$ 0,00
+            </h2>
+            <p class="text-sm text-white/75 mt-2">
+              Entradas menos saídas.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+          <div class="soft-card rounded-[26px] p-5 border-l-8 border-green-600">
+            <p class="text-slate-500 text-sm font-bold">Entradas em PIX</p>
+            <h3 id="totalPix" class="title-font text-2xl font-black mt-1 text-green-700">R$ 0,00</h3>
+          </div>
+
+          <div class="soft-card rounded-[26px] p-5 border-l-8 border-red-600">
+            <p class="text-slate-500 text-sm font-bold">Entradas em Espécie</p>
+            <h3 id="totalEspecie" class="title-font text-2xl font-black mt-1 text-red-700">R$ 0,00</h3>
+          </div>
+
+          <div class="soft-card rounded-[26px] p-5 border-l-8 border-yellow-400">
+            <p class="text-slate-500 text-sm font-bold">Doações</p>
+            <h3 id="totalDoacoes" class="title-font text-2xl font-black mt-1 text-yellow-600">R$ 0,00</h3>
+          </div>
+
+          <div class="soft-card rounded-[26px] p-5 border-l-8 border-blue-600">
+            <p class="text-slate-500 text-sm font-bold">Patrocínios</p>
+            <h3 id="totalPatrocinios" class="title-font text-2xl font-black mt-1 text-blue-700">R$ 0,00</h3>
+          </div>
+        </div>
+
+        <!-- TOTAL POR FONTE -->
+        <div class="soft-card rounded-[28px] p-6 mt-4">
+          <div class="mb-5">
+            <p class="title-font text-xs uppercase tracking-widest font-black text-blue-700">
+              Caixa Geral
+            </p>
+
+            <h3 class="title-font text-2xl font-black mt-1">
+              Total por fonte de entrada
+            </h3>
+
+            <p class="text-sm text-slate-500">
+              Veja quanto entrou em cada tipo de arrecadação.
+            </p>
+          </div>
+
+          <div id="listaFontesDashboard" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <p class="text-slate-500">Carregando...</p>
+          </div>
+        </div>
+
+        <!-- ÚLTIMAS MOVIMENTAÇÕES -->
+        <div class="soft-card rounded-[28px] p-6 mt-4">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
+            <div>
+              <h3 class="title-font text-2xl font-black">Últimas movimentações</h3>
+              <p class="text-sm text-slate-500">
+                As movimentações mais recentes cadastradas.
+              </p>
+            </div>
+
+            <button id="btnIrHistorico" class="btn-main bg-blue-700 text-white">
+              Ver histórico
+            </button>
+          </div>
+
+          <div id="ultimasMovimentacoes" class="space-y-3">
+            <p class="text-slate-500">Carregando...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADM -->
+      <section id="sectionAdmin" class="hidden-section">
+
+        <!-- LOGIN -->
+        <div id="loginBox" class="soft-card rounded-[28px] p-6 max-w-xl mx-auto border-t-8 border-blue-600">
+          <p class="title-font text-xs uppercase tracking-widest font-black text-blue-700">
+            Área restrita
+          </p>
+
+          <h2 class="title-font text-3xl font-black mt-1">
+            Entrar no ADM
+          </h2>
+
+          <p class="text-slate-500 mt-2">
+            Acesso exclusivo para administrar o caixa geral.
+          </p>
+
+          <form id="formLogin" class="mt-5 space-y-4">
+            <div class="rounded-2xl bg-blue-50 border border-blue-100 p-4">
+              <p class="text-xs font-black text-blue-600 uppercase tracking-widest">
+                Usuário ADM
+              </p>
+
+              <p class="text-lg font-black text-slate-900 mt-1">
+                Anjos@ejc2026.com
+              </p>
+
+              <p class="text-xs text-slate-500 mt-1">
+                Apenas este e-mail pode acessar o painel administrativo.
+              </p>
+            </div>
+
+            <div>
+              <label class="text-sm font-black text-slate-700">Senha</label>
+              <input
+                id="loginSenha"
+                type="password"
+                required
+                class="input mt-1"
+                placeholder="Digite a senha do ADM"
+              >
+            </div>
+
+            <button class="btn-main w-full bg-blue-700 text-white hover:bg-blue-800">
+              Entrar
+            </button>
+          </form>
+        </div>
+
+        <!-- ADMIN LOGADO -->
+        <div id="adminBox" class="hidden-section">
+
+          <div class="soft-card rounded-[28px] p-5 mb-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-l-8 border-green-600">
+            <div>
+              <p class="text-slate-500 text-sm">ADM conectado</p>
+              <h2 id="adminEmail" class="title-font text-xl font-black text-slate-950"></h2>
+            </div>
+
+            <button id="btnSair" class="btn-main bg-red-600 text-white">
+              Sair
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
+            <!-- ENTRADA -->
+            <div class="soft-card rounded-[28px] p-6 border-t-8 border-green-600">
+              <p class="title-font text-xs uppercase tracking-widest font-black text-green-700">
+                Entrada
+              </p>
+
+              <h2 class="title-font text-3xl font-black mt-1">
+                Cadastrar entrada
+              </h2>
+
+              <p class="text-sm text-slate-500 mt-1">
+                Registre doações, vendas, patrocínios e outras entradas do caixa geral.
+              </p>
+
+              <form id="formEntrada" class="mt-5 space-y-4">
+                <div>
+                  <label class="text-sm font-black text-slate-700">Fonte da entrada</label>
+                  <select id="entradaFonte" class="input mt-1">
+                    <option value="doacao">Doação</option>
+                    <option value="patrocinio">Patrocínio</option>
+                    <option value="venda">Venda</option>
+                    <option value="cantina">Cantina</option>
+                    <option value="evento">Evento</option>
+                    <option value="outros">Outros</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="text-sm font-black text-slate-700">Descrição da entrada</label>
+                  <input
+                    id="entradaDescricao"
+                    type="text"
+                    required
+                    class="input mt-1"
+                    placeholder="Ex: Doação da comunidade, venda de camisa..."
+                  >
+                </div>
+
+                <div>
+                  <label class="text-sm font-black text-slate-700">Valor</label>
+                  <input
+                    id="entradaValor"
+                    type="number"
+                    step="0.01"
+                    min="0.01"
+                    required
+                    class="input mt-1"
+                    placeholder="Ex: 50.00"
+                  >
+                </div>
+
+                <div>
+                  <label class="text-sm font-black text-slate-700">Forma de pagamento</label>
+                  <select id="entradaPagamento" class="input mt-1">
+                    <option value="pix">PIX</option>
+                    <option value="especie">Espécie</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="text-sm font-black text-slate-700">Observação</label>
+                  <input
+                    id="entradaObservacao"
+                    type="text"
+                    class="input mt-1"
+                    placeholder="Opcional"
+                  >
+                </div>
+
+                <button class="btn-main w-full bg-green-600 text-white hover:bg-green-700">
+                  Salvar entrada
+                </button>
+              </form>
+            </div>
+
+            <!-- SAÍDA -->
+            <div class="soft-card rounded-[28px] p-6 border-t-8 border-red-600">
+              <p class="title-font text-xs uppercase tracking-widest font-black text-red-700">
+                Saída
+              </p>
+
+              <h2 class="title-font text-3xl font-black mt-1">
+                Cadastrar saída
+              </h2>
+
+              <p class="text-sm text-slate-500 mt-1">
+                Registre os gastos do caixa geral com detalhes.
+              </p>
+
+              <form id="formSaida" class="mt-5 space-y-4">
+                <div>
+                  <label class="text-sm font-black text-slate-700">Descrição</label>
+                  <input
+                    id="saidaDescricao"
+                    type="text"
+                    required
+                    class="input mt-1"
+                    placeholder="Ex: Compra de material, transporte..."
+                  >
+                </div>
+
+                <div>
+                  <label class="text-sm font-black text-slate-700">Valor</label>
+                  <input
+                    id="saidaValor"
+                    type="number"
+                    step="0.01"
+                    min="0.01"
+                    required
+                    class="input mt-1"
+                    placeholder="Ex: 35.50"
+                  >
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-sm font-black text-slate-700">Categoria</label>
+                    <select id="saidaCategoria" class="input mt-1">
+                      <option value="alimentacao">Alimentação</option>
+                      <option value="material">Material</option>
+                      <option value="impressao">Impressão</option>
+                      <option value="transporte">Transporte</option>
+                      <option value="evento">Evento</option>
+                      <option value="outros">Outros</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="text-sm font-black text-slate-700">Pagamento</label>
+                    <select id="saidaPagamento" class="input mt-1">
+                      <option value="pix">PIX</option>
+                      <option value="especie">Espécie</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="text-sm font-black text-slate-700">Data da saída</label>
+                  <input id="saidaData" type="date" required class="input mt-1">
+                </div>
+
+                <button class="btn-main w-full bg-red-600 text-white hover:bg-red-700">
+                  Salvar saída
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTÓRICO -->
+      <section id="sectionHistorico" class="hidden-section">
+        <div class="soft-card rounded-[28px] p-6 border-t-8 border-blue-600">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-5">
+            <div>
+              <p class="title-font text-xs uppercase tracking-widest font-black text-blue-700">
+                Relatório
+              </p>
+
+              <h2 class="title-font text-3xl font-black mt-1">
+                Histórico completo
+              </h2>
+
+              <p class="text-sm text-slate-500">
+                Use os filtros para encontrar entradas e saídas do caixa geral.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div>
+                <label class="text-xs font-black text-slate-500">Tipo</label>
+                <select id="filtroTipo" class="input mt-1 py-2 rounded-xl">
+                  <option value="todos">Todos</option>
+                  <option value="entrada">Entradas</option>
+                  <option value="saida">Saídas</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="text-xs font-black text-slate-500">Fonte</label>
+                <select id="filtroFonte" class="input mt-1 py-2 rounded-xl">
+                  <option value="todos">Todas</option>
+                  <option value="doacao">Doação</option>
+                  <option value="patrocinio">Patrocínio</option>
+                  <option value="venda">Venda</option>
+                  <option value="cantina">Cantina</option>
+                  <option value="evento">Evento</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="text-xs font-black text-slate-500">Pagamento</label>
+                <select id="filtroPagamento" class="input mt-1 py-2 rounded-xl">
+                  <option value="todos">Todos</option>
+                  <option value="pix">PIX</option>
+                  <option value="especie">Espécie</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div id="historicoCompleto" class="space-y-3">
+            <p class="text-slate-500">Carregando...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      deleteDoc,
+      doc,
+      onSnapshot,
+      query,
+      orderBy,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyANtE6Xd-_SdV0AOZ52T7MXEJ0a-Cksj4w",
+      authDomain: "supernatural-51e12.firebaseapp.com",
+      projectId: "supernatural-51e12",
+      storageBucket: "supernatural-51e12.firebasestorage.app",
+      messagingSenderId: "1030063599704",
+      appId: "1:1030063599704:web:aff395634cf9828cd2da2d",
+      measurementId: "G-WYXXRKDZ7X"
+    };
+
+    // Identificação deste site dentro do mesmo banco
+    const SITE_ID = "geral";
+
+    // Mesmo ADM usado no outro site
+    const ADMIN_EMAIL = "Anjos@ejc2026.com";
+
+    const FONTES_GERAL = [
+      { id: "doacao", nome: "Doações" },
+      { id: "patrocinio", nome: "Patrocínios" },
+      { id: "venda", nome: "Vendas" },
+      { id: "cantina", nome: "Cantina" },
+      { id: "evento", nome: "Eventos" },
+      { id: "outros", nome: "Outros" }
+    ];
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    let movimentacoes = [];
+    let usuarioLogado = null;
+
+    const $ = (id) => document.getElementById(id);
+
+    function escapeHTML(texto) {
+      return String(texto || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatarMoeda(valor) {
+      return Number(valor || 0).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+      });
+    }
+
+    function formatarPagamento(pagamento) {
+      return pagamento === "pix" ? "PIX" : "Espécie";
+    }
+
+    function formatarFonte(fonte) {
+      const encontrada = FONTES_GERAL.find((item) => item.id === fonte);
+      return encontrada ? encontrada.nome : "Outros";
+    }
+
+    function formatarCategoria(categoria) {
+      const categorias = {
+        alimentacao: "Alimentação",
+        material: "Material",
+        impressao: "Impressão",
+        transporte: "Transporte",
+        evento: "Evento",
+        outros: "Outros"
+      };
+
+      return categorias[categoria] || "Outros";
+    }
+
+    function obterDataTexto(item) {
+      if (item.createdAt && item.createdAt.toDate) {
+        return item.createdAt.toDate().toLocaleDateString("pt-BR");
+      }
+
+      if (item.dataSaida) {
+        return new Date(item.dataSaida + "T00:00:00").toLocaleDateString("pt-BR");
+      }
+
+      return "Sem data";
+    }
+
+    function mostrarSecao(secao) {
+      const secoes = {
+        dashboard: $("sectionDashboard"),
+        admin: $("sectionAdmin"),
+        historico: $("sectionHistorico")
+      };
+
+      const tabs = {
+        dashboard: $("tabDashboard"),
+        admin: $("tabAdmin"),
+        historico: $("tabHistorico")
+      };
+
+      Object.values(secoes).forEach((el) => el.classList.add("hidden-section"));
+
+      Object.values(tabs).forEach((el) => {
+        el.classList.remove("tab-active");
+        el.classList.add("tab-inactive");
+      });
+
+      secoes[secao].classList.remove("hidden-section");
+      tabs[secao].classList.add("tab-active");
+      tabs[secao].classList.remove("tab-inactive");
+    }
+
+    $("tabDashboard").addEventListener("click", () => mostrarSecao("dashboard"));
+    $("tabAdmin").addEventListener("click", () => mostrarSecao("admin"));
+    $("tabHistorico").addEventListener("click", () => mostrarSecao("historico"));
+    $("btnIrHistorico").addEventListener("click", () => mostrarSecao("historico"));
+
+    $("saidaData").valueAsDate = new Date();
+
+    $("formLogin").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const senha = $("loginSenha").value;
+
+      try {
+        await signInWithEmailAndPassword(auth, ADMIN_EMAIL, senha);
+        $("formLogin").reset();
+      } catch (error) {
+        console.error(error);
+        alert("Senha incorreta ou usuário ADM não criado no Firebase.");
+      }
+    });
+
+    $("btnSair").addEventListener("click", async () => {
+      await signOut(auth);
+    });
+
+    onAuthStateChanged(auth, (user) => {
+      usuarioLogado = user;
+
+      if (user) {
+        $("loginBox").classList.add("hidden-section");
+        $("adminBox").classList.remove("hidden-section");
+        $("adminEmail").innerText = user.email;
+      } else {
+        $("loginBox").classList.remove("hidden-section");
+        $("adminBox").classList.add("hidden-section");
+        $("adminEmail").innerText = "";
+      }
+
+      renderizarTudo();
+    });
+
+    // Salvar entrada geral
+    $("formEntrada").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const fonte = $("entradaFonte").value;
+      const descricao = $("entradaDescricao").value.trim();
+      const valor = Number($("entradaValor").value);
+      const pagamento = $("entradaPagamento").value;
+      const observacao = $("entradaObservacao").value.trim();
+
+      if (!descricao || valor <= 0) {
+        alert("Preencha a descrição e um valor válido.");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "movimentacoes"), {
+          equipe: SITE_ID,
+          tipo: "entrada",
+          fonte,
+          descricao,
+          valor,
+          pagamento,
+          observacao,
+          createdAt: serverTimestamp()
+        });
+
+        $("formEntrada").reset();
+
+        alert("Entrada salva com sucesso!");
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao salvar entrada. Verifique as regras do Firebase.");
+      }
+    });
+
+    // Salvar saída geral
+    $("formSaida").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const descricao = $("saidaDescricao").value.trim();
+      const valor = Number($("saidaValor").value);
+      const categoria = $("saidaCategoria").value;
+      const pagamento = $("saidaPagamento").value;
+      const dataSaida = $("saidaData").value;
+
+      if (!descricao || valor <= 0 || !dataSaida) {
+        alert("Preencha os dados da saída corretamente.");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "movimentacoes"), {
+          equipe: SITE_ID,
+          tipo: "saida",
+          descricao,
+          valor,
+          categoria,
+          pagamento,
+          dataSaida,
+          createdAt: serverTimestamp()
+        });
+
+        $("formSaida").reset();
+        $("saidaData").valueAsDate = new Date();
+
+        alert("Saída salva com sucesso!");
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao salvar saída. Verifique as regras do Firebase.");
+      }
+    });
+
+    // Busca em tempo real no mesmo banco.
+    // Filtra apenas os documentos da equipe geral.
+    const q = query(collection(db, "movimentacoes"), orderBy("createdAt", "desc"));
+
+    onSnapshot(q, (snapshot) => {
+      const todos = snapshot.docs.map((documento) => ({
+        id: documento.id,
+        ...documento.data()
+      }));
+
+      movimentacoes = todos.filter((item) => item.equipe === SITE_ID);
+
+      renderizarTudo();
+    }, (error) => {
+      console.error(error);
+      alert("Erro ao carregar dados do Firebase.");
+    });
+
+    function calcularTotais() {
+      return movimentacoes.reduce((acc, item) => {
+        const valor = Number(item.valor || 0);
+
+        if (item.tipo === "entrada") {
+          acc.entradas += valor;
+
+          if (item.pagamento === "pix") acc.pix += valor;
+          if (item.pagamento === "especie") acc.especie += valor;
+
+          acc.fontes[item.fonte] = (acc.fontes[item.fonte] || 0) + valor;
+        }
+
+        if (item.tipo === "saida") {
+          acc.saidas += valor;
+        }
+
+        return acc;
+      }, {
+        entradas: 0,
+        saidas: 0,
+        pix: 0,
+        especie: 0,
+        fontes: {}
+      });
+    }
+
+    function renderizarTudo() {
+      const totais = calcularTotais();
+      const saldo = totais.entradas - totais.saidas;
+
+      $("totalEntradas").innerText = formatarMoeda(totais.entradas);
+      $("totalSaidas").innerText = formatarMoeda(totais.saidas);
+      $("saldoFinal").innerText = formatarMoeda(saldo);
+
+      $("totalPix").innerText = formatarMoeda(totais.pix);
+      $("totalEspecie").innerText = formatarMoeda(totais.especie);
+      $("totalDoacoes").innerText = formatarMoeda(totais.fontes.doacao || 0);
+      $("totalPatrocinios").innerText = formatarMoeda(totais.fontes.patrocinio || 0);
+
+      renderizarFontesDashboard(totais.fontes);
+      renderizarUltimas();
+      renderizarHistorico();
+    }
+
+    function renderizarFontesDashboard(totaisFontes) {
+      $("listaFontesDashboard").innerHTML = FONTES_GERAL.map((fonte) => {
+        const total = totaisFontes[fonte.id] || 0;
+
+        return `
+          <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+            <p class="text-xs font-black text-slate-500 uppercase tracking-widest">
+              Fonte
+            </p>
+
+            <h4 class="title-font font-black text-slate-950 mt-1">
+              ${escapeHTML(fonte.nome)}
+            </h4>
+
+            <p class="text-lg font-black text-blue-700 mt-1">
+              ${formatarMoeda(total)}
+            </p>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function criarCardMovimentacao(item, permitirExcluir = false) {
+      const entrada = item.tipo === "entrada";
+
+      const titulo = entrada
+        ? item.descricao
+        : item.descricao;
+
+      const detalhe = entrada
+        ? `${formatarFonte(item.fonte)} • ${formatarPagamento(item.pagamento)}`
+        : `${formatarCategoria(item.categoria)} • ${formatarPagamento(item.pagamento)}`;
+
+      const corBorda = entrada ? "border-green-200" : "border-red-200";
+      const corTexto = entrada ? "text-green-600" : "text-red-600";
+      const bgTag = entrada ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700";
+      const sinal = entrada ? "+" : "-";
+      const tipoTexto = entrada ? "Entrada" : "Saída";
+
+      const botaoExcluir = permitirExcluir && usuarioLogado
+        ? `
+          <button
+            data-id="${item.id}"
+            class="btnExcluir px-3 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-red-100 hover:text-red-700 text-sm font-black"
+          >
+            Apagar
+          </button>
+        `
+        : "";
+
+      return `
+        <div class="p-4 rounded-2xl border ${corBorda} bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="px-3 py-1 rounded-full text-xs font-black ${bgTag}">
+                  ${tipoTexto}
+                </span>
+
+                <span class="text-xs text-slate-400">
+                  ${obterDataTexto(item)}
+                </span>
+              </div>
+
+              <h4 class="font-black text-slate-950 mt-2">
+                ${escapeHTML(titulo || "Sem título")}
+              </h4>
+
+              <p class="text-sm text-slate-500 mt-1">
+                ${escapeHTML(detalhe)}
+              </p>
+
+              ${item.observacao ? `<p class="text-xs text-slate-400 mt-1">Obs: ${escapeHTML(item.observacao)}</p>` : ""}
+            </div>
+
+            <div class="flex items-center gap-3 md:text-right">
+              <p class="title-font font-black ${corTexto} text-xl">
+                ${sinal} ${formatarMoeda(item.valor)}
+              </p>
+
+              ${botaoExcluir}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderizarUltimas() {
+      const ultimas = movimentacoes.slice(0, 5);
+
+      if (ultimas.length === 0) {
+        $("ultimasMovimentacoes").innerHTML = `<p class="text-slate-500">Nenhuma movimentação cadastrada ainda.</p>`;
+        return;
+      }
+
+      $("ultimasMovimentacoes").innerHTML = ultimas
+        .map((item) => criarCardMovimentacao(item, false))
+        .join("");
+    }
+
+    function renderizarHistorico() {
+      const filtroTipo = $("filtroTipo").value;
+      const filtroFonte = $("filtroFonte").value;
+      const filtroPagamento = $("filtroPagamento").value;
+
+      let lista = [...movimentacoes];
+
+      if (filtroTipo !== "todos") {
+        lista = lista.filter((item) => item.tipo === filtroTipo);
+      }
+
+      if (filtroFonte !== "todos") {
+        lista = lista.filter((item) => item.fonte === filtroFonte);
+      }
+
+      if (filtroPagamento !== "todos") {
+        lista = lista.filter((item) => item.pagamento === filtroPagamento);
+      }
+
+      if (lista.length === 0) {
+        $("historicoCompleto").innerHTML = `<p class="text-slate-500">Nenhuma movimentação encontrada.</p>`;
+        return;
+      }
+
+      $("historicoCompleto").innerHTML = lista
+        .map((item) => criarCardMovimentacao(item, true))
+        .join("");
+    }
+
+    $("filtroTipo").addEventListener("change", renderizarHistorico);
+    $("filtroFonte").addEventListener("change", renderizarHistorico);
+    $("filtroPagamento").addEventListener("change", renderizarHistorico);
+
+    document.addEventListener("click", async (event) => {
+      const botao = event.target.closest(".btnExcluir");
+
+      if (!botao) return;
+
+      if (!usuarioLogado) {
+        alert("Você precisa estar logado para apagar.");
+        return;
+      }
+
+      const confirmar = confirm("Tem certeza que deseja apagar esta movimentação?");
+
+      if (!confirmar) return;
+
+      try {
+        await deleteDoc(doc(db, "movimentacoes", botao.dataset.id));
+        alert("Movimentação apagada.");
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao apagar movimentação.");
+      }
+    });
+  </script>
+</body>
+</html>
