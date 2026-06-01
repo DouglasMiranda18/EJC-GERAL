@@ -178,7 +178,7 @@
                 </p>
 
                 <p class="text-slate-600 mt-3 max-w-2xl text-sm md:text-base">
-                  Sistema geral para organizar doações, vendas, patrocínios, eventos, entradas, saídas e saldo final.
+                  Sistema da equipe Coordenação Geral para organizar entradas, saídas, PIX, espécie e saldo final.
                 </p>
 
                 <div class="flex flex-wrap gap-2 mt-4">
@@ -222,7 +222,7 @@
               R$ 0,00
             </h2>
             <p class="text-sm text-slate-500 mt-2">
-              Todo dinheiro recebido no caixa geral.
+              Todo dinheiro recebido pela Coordenação Geral.
             </p>
           </div>
 
@@ -308,7 +308,7 @@
           </h2>
 
           <p class="text-slate-500 mt-2">
-            Acesso exclusivo para administrar o caixa geral.
+            Acesso exclusivo para administrar a equipe Coordenação Geral.
           </p>
 
           <form id="formLogin" class="mt-5 space-y-4">
@@ -318,7 +318,7 @@
               </p>
 
               <p class="text-lg font-black text-slate-900 mt-1">
-                Anjos@ejc2026.com
+                coordenacaogeral@ejc2026.com
               </p>
 
               <p class="text-xs text-slate-500 mt-1">
@@ -370,7 +370,7 @@
               </h2>
 
               <p class="text-sm text-slate-500 mt-1">
-                Registre doações, vendas, patrocínios e outras entradas do caixa geral.
+                Registre doações, vendas, patrocínios e outras entradas da Coordenação Geral.
               </p>
 
               <form id="formEntrada" class="mt-5 space-y-4">
@@ -393,7 +393,7 @@
                     type="text"
                     required
                     class="input mt-1"
-                    placeholder="Ex: Doação da comunidade, venda de camisa..."
+                    placeholder="Ex: Doação, venda, apoio..."
                   >
                 </div>
 
@@ -445,7 +445,7 @@
               </h2>
 
               <p class="text-sm text-slate-500 mt-1">
-                Registre os gastos do caixa geral com detalhes.
+                Registre os gastos da Coordenação Geral com detalhes.
               </p>
 
               <form id="formSaida" class="mt-5 space-y-4">
@@ -523,7 +523,7 @@
               </h2>
 
               <p class="text-sm text-slate-500">
-                Use os filtros para encontrar entradas e saídas do caixa geral.
+                Use os filtros para encontrar entradas e saídas da Coordenação Geral.
               </p>
             </div>
 
@@ -602,7 +602,7 @@
     };
 
     const SITE_ID = "geral";
-    const ADMIN_EMAIL = "Anjos@ejc2026.com";
+    const ADMIN_EMAIL = "coordenacaogeral@ejc2026.com";
 
     const FONTES_GERAL = [
       { id: "doacao", nome: "Doações" },
@@ -738,7 +738,7 @@
       renderizarTudo();
     });
 
-    // Salvar entrada geral
+    // SALVAR ENTRADA
     $("formEntrada").addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -774,7 +774,7 @@
       }
     });
 
-    // Salvar saída geral
+    // SALVAR SAÍDA
     $("formSaida").addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -862,13 +862,17 @@
       $("totalSaidas").innerText = formatarMoeda(totais.saidas);
       $("saldoFinal").innerText = formatarMoeda(saldo);
 
-      $("totalPix").innerText = formatarMoeda(totais.pix);
+      $("totalPix").innerText = formatarMoeda(totisSafe(totais.pix));
       $("totalEspecie").innerText = formatarMoeda(totais.especie);
       $("totalDoacoes").innerText = formatarMoeda(totais.fontes.doacao || 0);
       $("totalPatrocinios").innerText = formatarMoeda(totais.fontes.patrocinio || 0);
 
       renderizarUltimas();
       renderizarHistorico();
+    }
+
+    function totisSafe(valor) {
+      return valor || 0;
     }
 
     function criarCardMovimentacao(item, permitirExcluir = false) {
